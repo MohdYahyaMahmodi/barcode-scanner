@@ -2,7 +2,7 @@
   "name": "Barcode Scanner",
   "short_name": "BarcodeScanner",
   "description": "Scan barcodes and check prices across multiple stores",
-  "start_url": "/index.html",
+"start_url": "/barcode-scanner/index.html",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#121212",
