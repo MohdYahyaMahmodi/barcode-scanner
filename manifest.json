@@ -1,0 +1,16 @@
+{
+  "name": "Barcode Scanner",
+  "short_name": "BarcodeScanner",
+  "description": "Scan barcodes and check prices across multiple stores",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#3d5afe",
+  "icons": [
+    {
+      "src": "images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

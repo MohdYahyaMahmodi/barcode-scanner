@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Specify the character encoding for the HTML document -->
+        <meta charset="UTF-8">
+        <!-- Ensure proper rendering and touch zooming for all devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Set the title of the page, which appears in the browser tab -->
+        <title>Barcode Scanner - Multi-Store Price Checker</title>
+        <!-- Load the Inter font from Google Fonts -->
+        <!-- Weights 400 (regular), 600 (semi-bold), and 700 (bold) are imported -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Load Font Awesome for icons -->
+        <!-- This provides a wide range of icons used throughout the application -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        <!-- Load custom styles from the local style.css file -->
+        <link href="style.css" rel="stylesheet">
+        <!-- Progressive Web App (PWA) support -->
+        <!-- Link to the Web App Manifest file -->
+        <!-- This JSON file contains metadata for the app (name, icons, etc.) -->
+        <link rel="manifest" href="manifest.json">
+        <!-- Set the theme color for the app -->
+        <!-- This color is used by some mobile browsers in the UI -->
+        <meta name="theme-color" content="#3d5afe">
+        <!-- Favicon for all purposes -->
+        <!-- This single image will be used for favicon, home screen icon, etc. -->
+        <link rel="icon" type="image/png" href="images/favicon.png">
+        <!-- For iOS devices -->
+        <link rel="apple-touch-icon" href="images/favicon.png">
+    </head>
+<body>
+    <!-- Main container for all content -->
+    <div class="container">
+        <!-- Header section with logo and tagline -->
+        <header class="header">
+            <h1 class="logo">Barcode Scanner</h1>
+            <p class="tagline">Check prices across multiple stores</p>
+        </header>
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Scanner section: contains camera selection and video feed -->
+            <section class="scanner-section">
+                <!-- Camera selection dropdown -->
+                <div class="camera-selection">
+                    <label for="cameraSelect">Select Camera:</label>
+                    <select id="cameraSelect"></select>
+                </div>
+                <!-- Container for the scanner video feed -->
+                <div class="scanner-container">
+                    <!-- Video element for camera feed -->
+                    <video id="video"></video>
+                    <!-- Canvas for drawing helper graphics -->
+                    <canvas id="canvas" class="drawingBuffer"></canvas>
+                    <!-- Visual indicator for scan region -->
+                    <div class="scan-region">
+                        <div class="scan-line"></div>
+                    </div>
+                </div>
+                <!-- Instructions for users -->
+                <p class="scanner-info">Point your camera at a barcode to scan</p>
+            </section>
+            <!-- Results section: displays scan results and history -->
+            <section class="result-section">
+                <h2 class="result-title">Scan Result</h2>
+                <!-- Container for displaying scan results -->
+                <div id="result">
+                    <p>Scan a barcode to see results</p>
+                </div>
+                <!-- Button to save the current scan -->
+                <button id="saveButton">Save Scan</button>
+                <!-- Section for displaying scan history -->
+                <h3 class="last-scans-title">Last Scans</h3>
+                <!-- List of previous scans -->
+                <ul id="lastScans"></ul>
+            </section>
+        </main>
+    </div>
+    <!-- Overlay for the save scan popup -->
+    <div class="popup-overlay">
+        <div class="popup">
+            <h3>Save Scan</h3>
+            <!-- Input for entering product name -->
+            <input type="text" id="productName" placeholder="Enter product name">
+            <div class="popup-buttons">
+                <!-- Buttons for saving or canceling -->
+                <button class="popup-button popup-cancel">Cancel</button>
+                <button class="popup-button popup-save">Save</button>
+            </div>
+        </div>
+    </div>
+    <!-- Load Quagga.js for barcode scanning -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <!-- Load Axios for potential HTTP requests (currently unused) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- Load custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>

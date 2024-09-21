@@ -1,0 +1,358 @@
+/* Root variables for consistent color scheme */
+:root {
+  --bg-color: #121212;          /* Main background color */
+  --surface-color: #1e1e1e;     /* Surface/card background color */
+  --primary-color: #ffffff;     /* Primary text and accent color */
+  --text-color: #e0e0e0;        /* Main text color */
+  --text-color-dark: #000000;   /* Dark text color for contrasting backgrounds */
+  --secondary-text-color: #9e9e9e; /* Secondary/muted text color */
+  --amazon-color: #ff9900;      /* Amazon brand color */
+  --walmart-color: #0071ce;     /* Walmart brand color */
+  --target-color: #cc0000;      /* Target brand color */
+}
+
+/* Global reset and box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Container for main content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+}
+
+/* Main content layout */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Styles for scanner and result sections */
+.scanner-section, .result-section {
+  background-color: var(--surface-color);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Scanner container styles */
+.scanner-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin: 0 auto 1rem;
+}
+
+/* Video and canvas positioning */
+#video, #canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scan region overlay */
+.scan-region {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70%;
+  height: 50%;
+  border: 2px solid var(--primary-color);
+  border-radius: 1rem;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+}
+
+/* Animated scan line */
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
+  animation: scan 2s linear infinite;
+}
+
+/* Scan line animation */
+@keyframes scan {
+  0% { top: 0; }
+  50% { top: 100%; }
+  100% { top: 0; }
+}
+
+/* Scanner information text */
+.scanner-info {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--secondary-text-color);
+}
+
+/* Result section styles */
+.result-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+#result {
+  margin-bottom: 1rem;
+}
+
+.barcode-result {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  word-break: break-all;
+}
+
+/* Store buttons container */
+.store-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Individual store button styles */
+.store-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.store-button:hover {
+  opacity: 0.9;
+}
+
+.store-button i {
+  margin-right: 0.5rem;
+}
+
+/* Store-specific button colors */
+.google-button { background-color: #4285F4; }
+.amazon-button { background-color: var(--amazon-color); }
+.walmart-button { background-color: var(--walmart-color); }
+.target-button { background-color: var(--target-color); }
+
+/* Save button styles */
+#saveButton {
+  display: none;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--text-color-dark);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#saveButton:hover {
+  background-color: #304ffe;
+}
+
+/* Last scans section styles */
+.last-scans-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+#lastScans {
+  list-style-type: none;
+}
+
+#lastScans li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-color);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+#lastScans li:hover {
+  background-color: #2c2c2c;
+}
+
+#lastScans li span {
+  cursor: pointer;
+  flex-grow: 1;
+  margin-right: 1rem;
+}
+
+/* Delete button styles */
+.delete-btn {
+  color: var(--text-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+}
+
+/* Popup overlay styles */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup styles */
+.popup {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-width: 400px;
+  width: 90%;
+}
+
+.popup h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.popup input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--secondary-text-color);
+  color: var(--text-color);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+/* Popup button container */
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Popup button styles */
+.popup-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.popup-save {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.popup-save:hover {
+  background-color: #304ffe;
+}
+
+.popup-cancel {
+  background-color: var(--secondary-text-color);
+  color: var(--text-color);
+}
+
+.popup-cancel:hover {
+  background-color: #7e7e7e;
+}
+
+/* Camera selection styles */
+.camera-selection {
+  margin-bottom: 1rem;
+}
+
+#cameraSelect {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 0.25rem;
+}
+
+/* Responsive design for larger screens */
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+  }
+  
+  .scanner-section, .result-section {
+    flex: 1;
+  }
+  
+  .store-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .store-button {
+    flex: 1 1 calc(50% - 0.375rem);
+  }
+}
